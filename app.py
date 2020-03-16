@@ -89,7 +89,7 @@ def scrape():
 
     # type(tables)
 
-    df=tables[0]
+    df=tables[1]
     df.columns = ['Fact','Value']
     df=df.to_dict('records')
 

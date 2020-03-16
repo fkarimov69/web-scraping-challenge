@@ -6,29 +6,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mars!</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="reset.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reset.css">
 </head>
 
 <body>
-    <div class="container text-center">
+    <div class="container-fluid text-center">
       <h1 class="jumbotron">Mission to Mars</h1>
-      {{all_items.title}}
+      
       <div>
         <!-- write a for loop that lists out your data and accesses the values using dot notation. -->
           {% for item in all_items %}
-          <div class="col-lg-4">
-            <div class="card" style="width: 20rem;">
+          <div class="col-lg-12">
+            <div class="card" style= text-align:left>
                 <div class="card-body">
-                  <h4 class="card-title">{{ item.title }}</h4> -->
-
-                  all_items.title
+                  <h1 class="card-title">Latest Mars News</h1>
+                  <h4 class="card-title">{{ item.title }}</h4>
+                  <p>{{item.paragraph}}</p>
+                  
+                  
                 </div>
               </div>
           </div>
-            {% endfor %}
-
-      </div>
     </div>
+      </div>
+      <p></p>
+        <div class="container_fluid text-center">      
+          <div class="row">
+            <div class="col-lg-7">
+              <div class="box_1">
+                  <div class="header_2" >
+                      <h1>Featured Mars Image</h1>
+                  </div>
+                      
+                   <img src="{{item.featured_image_url}}" width="60%" alt="Featured Image">
+               </div>    
+            </div>          
+              <div class="col-lg-4">
+                <div class="box_1">
+                  <div class="header_5" style="text-align: center";>
+                    <h4>Current weather on Mars</h4>
+                    <p>{{item.weather}}</p>
+                    <h1></h1>
+                    <div class="box_1">
+                      <div class="header"  >
+                        <h4>Mars Facts</h4>
+                        <table border="1"  align="center">
+                          
+                        <tr>
+                          <td>&nbsp{{item.facts[0].get("Fact")}} &nbsp &nbsp </td>
+                          <td>&nbsp{{item.facts[0].get("Value")}} &nbsp</td>
+                        </tr>
+                          
+                        
+                          
+                          <tr>
+                            <td>&nbsp{{item.facts[1].get("Fact")}} &nbsp &nbsp </td>
+                            <td>&nbsp{{item.facts[1].get("Value")}} &nbsp</td>
+                          </tr>
+                            
+                          
+                            <tr>
+                              <td>&nbsp{{item.facts[2].get("Fact")}} &nbsp &nbsp </td>
+                              <td>&nbsp{{item.facts[2].get("Value")}} &nbsp</td>
+                            </tr>
+
+                            <tr>
+                              <td>&nbsp{{item.facts[3].get("Fact")}} &nbsp &nbsp </td>
+                              <td>&nbsp{{item.facts[3].get("Value")}} &nbsp</td>
+                            </tr>
+
+                            <tr>
+                              <td>&nbsp{{item.facts[4].get("Fact")}} &nbsp &nbsp </td>
+                              <td>&nbsp{{item.facts[4].get("Value")}} &nbsp</td>
+                            </tr>
+
+                            <tr>
+                              <td>&nbsp{{item.facts[5].get("Fact")}} &nbsp &nbsp </td>
+                              <td>&nbsp{{item.facts[5].get("Value")}} &nbsp</td>
+                            </tr>
+
+                            <tr>
+                              <td>&nbsp{{item.facts[6].get("Fact")}} &nbsp &nbsp </td>
+                              <td>&nbsp{{item.facts[6].get("Value")}} &nbsp</td>
+                            </tr>
+
+                            <tr>
+                              <td>&nbsp{{item.facts[7].get("Fact")}} &nbsp &nbsp </td>
+                              <td>&nbsp{{item.facts[7].get("Value")}} &nbsp</td>
+                            </tr>
+                              
+                            <tr>
+                              <td>&nbsp{{item.facts[8].get("Fact")}} &nbsp &nbsp </td>
+                              <td>&nbsp{{item.facts[8].get("Value")}} &nbsp</td>
+                            </tr>
+                            </table>
+                            
+                            
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+                      
+          <p></p>
+          <p></p>
+          <h2>Mars Hemispheres</h2>
+                              <div class="container_fluid">
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class=box style=border-style:solid;>
+                                      <img src="{{item.hemisphere_img[0].get("img_url")}}" width="75%">
+                                        <footer>
+                                          <h4>{{item.hemisphere_img[0].get("title")}}</h4>
+                                          </footer>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class=box style=border-style:solid;>
+                                      <img src="{{item.hemisphere_img[1].get("img_url")}}" width="75%">
+                                        <footer>
+                                          <h4>{{item.hemisphere_img[1].get("title")}}</h4>
+                                          </footer>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <div class=box style=border-style:solid;>
+                                      <img src="{{item.hemisphere_img[2].get("img_url")}}" width="75%">
+                                        <footer>
+                                          <h4>{{item.hemisphere_img[2].get("title")}}</h4>
+                                          </footer>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class=box style=border-style:solid;>
+                                      <img src="{{item.hemisphere_img[3].get("img_url")}}" width="75%">
+                                        <footer>
+                                          <h4>{{item.hemisphere_img[3].get("title")}}</h4>
+                                          </footer>
+                                    </div>
+                                  </div>
+                              </div>
+        </div>
+          {% endfor %}  
+
+      
   </body>
 
 </html>
